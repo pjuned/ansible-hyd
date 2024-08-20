@@ -4,4 +4,5 @@
 192.168.2.6
 
 [web]
-18.234.154.60
+18.234.154.60 ansible_user=centos ansible_ssh_private_key_file=C:\Users\junaid
+
