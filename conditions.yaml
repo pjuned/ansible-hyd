@@ -1,21 +1,43 @@
+# - name: conditions
+#   hosts: localhost
+#   become: yes
+#   tasks:
+#     - name: check roboshop user exists or not
+#       ansible.builtin.cmd: id roboshop
+#       register: user
+#       ignore_errors: true 
+    
+#     - name: print variable value
+#       ansible.builtin.debug:
+#         msg: "user output is: {{user}}"
+
+#     - name: print exit status or return code
+#       ansible.builtin.debug:
+#         msg: "status is {{user.rc}}"
+
+#     - name: create user
+#       ansible.builtin.user:
+#         name: roboshop
+#       when: user.rc !=0 #condition
+
 - name: conditions
   hosts: localhost
   become: yes
   tasks:
-    - name: check roboshop user exists or not
-      ansible.builtin.cmd: id roboshop
+    - name: check if roboshop user exists
+      ansible.builtin.command: id roboshop
       register: user
       ignore_errors: true 
     
     - name: print variable value
       ansible.builtin.debug:
-        msg: "user output is: {{user}}"
+        msg: "user output is: {{ user }}"
 
     - name: print exit status or return code
       ansible.builtin.debug:
-        msg: "status is {{user.rc}}"
+        msg: "status is {{ user.rc }}"
 
-    - name: create user
+    - name: create roboshop user if not present
       ansible.builtin.user:
         name: roboshop
-      when: user.rc !=0 #condition
+      when: user.rc != 0  # condition to create user if it doesn't exist
