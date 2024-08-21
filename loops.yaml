@@ -3,7 +3,9 @@
   tasks: 
     - name: install packages
       ansible.builtin.package:
-        msg: "Hello {{ item }}"
+         name: "{{item}}"
+         state: present
+
       loop:
         - git 
         - postfix
