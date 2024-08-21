@@ -1,23 +1,23 @@
-# - name: loops 
-#   host: localhost
-#   become: yes 
-#   tasks: 
-#     - name: print persons
-#       ansible.builtin.debug:
-#         msg: "Hello {{item}}"
-#       loop
-#         - Ramesh
-#         - Suresh
-#         - Juned
-
 - name: loops 
-  hosts: localhost
+  host: localhost
   become: yes 
   tasks: 
     - name: print persons
       ansible.builtin.debug:
-        msg: "Hello {{ item }}"
-      loop:
+        msg: "Hello {{item}}"
+      loop
         - Ramesh
         - Suresh
         - Juned
+
+# - name: loops 
+#   hosts: localhost
+#   become: yes 
+#   tasks: 
+#     - name: print persons
+#       ansible.builtin.debug:
+#         msg: "Hello {{ item }}"
+#       loop:
+#         - Ramesh
+#         - Suresh
+#         - Juned
