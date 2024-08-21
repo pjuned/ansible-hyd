@@ -1,6 +1,5 @@
 - name: loops 
   host: localhost
-  become: yes 
   tasks: 
     - name: print persons
       ansible.builtin.debug:
