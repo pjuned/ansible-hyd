@@ -1,6 +1,6 @@
 - name: variables from file
   hosts: localhost
-  vars:
+  vars_files:
     variables.yaml
   tasks:
     - name: checking variables from file
