@@ -5,6 +5,6 @@
     trainer: Siva
     dur: 110 hrs
   tasks:
-    - name:check variables
+    - name: check variables
       ansible.builtin.debug:
         msg: "I am learning {{course}} by {{trainer}} for {{dur}} "
